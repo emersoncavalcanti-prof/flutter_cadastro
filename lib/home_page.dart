@@ -31,15 +31,27 @@ class _HomePageState extends State<HomePage> {
             children: [
               TextFormField(
                 controller: controllerEmail,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Digite seu email',
                 ),
+                validator: (email) {
+                  if (email!.isEmpty) {
+                    return 'Digite um email';
+                  }
+                  if (!email.contains('@')) {
+                    return 'Digite um email válido';
+                  }
+                  return null;
+                },
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {}
+                },
                 child: const Text('Enviar'),
-              )
+              ),
             ],
           ),
         ),

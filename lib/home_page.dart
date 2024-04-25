@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
   final controllerEmail = TextEditingController();
+  final controllerPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +47,36 @@ class _HomePageState extends State<HomePage> {
                   return null;
                 },
               ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextFormField(
+                controller: controllerPassword,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Digite sua senha',
+                ),
+                validator: (password) {
+                  if (password!.isEmpty) {
+                    return 'Digite uma senha';
+                  }
+                  if (password.length < 6) {
+                    return 'A senha deve conter 6 caracteres';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               ElevatedButton(
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {}
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.pushNamed(context, '/detalhes');
+                  }
                 },
-                child: const Text('Enviar'),
+                child: const Text('Logar'),
               ),
             ],
           ),

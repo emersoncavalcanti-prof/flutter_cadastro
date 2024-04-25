@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cadastro/anima_page.dart';
+import 'package:flutter_cadastro/detalhes_page.dart';
 import 'package:flutter_cadastro/home_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -6,9 +8,14 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      initialRoute: '/anima',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/anima': (context) => const AnimaPage(),
+        '/detalhes': (context) => const DetalhesPage(),
+      },
     );
   }
 }

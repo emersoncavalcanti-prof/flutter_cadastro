@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class AnimaPage extends StatefulWidget {
   const AnimaPage({super.key});
@@ -25,12 +26,14 @@ class _AnimaPageState extends State<AnimaPage> {
               });
             },
             child: AnimatedContainer(
-              curve: Curves.fastOutSlowIn,
+              curve: Curves.bounceInOut,
               duration: const Duration(seconds: 1),
               width: clicked == true ? 100 : 200,
               height: clicked == true ? 100 : 200,
-              decoration: const BoxDecoration(
-                color: Colors.blue,
+              decoration: BoxDecoration(
+                color: clicked == true ? Colors.blue : Colors.red,
+                borderRadius:
+                    clicked == true ? BorderRadius.circular(50) : null,
               ),
             ),
           ),

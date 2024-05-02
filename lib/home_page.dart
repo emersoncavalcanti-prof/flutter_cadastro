@@ -1,4 +1,9 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_cadastro/controller_login.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,9 +16,12 @@ class _HomePageState extends State<HomePage> {
   final _formKey = GlobalKey<FormState>();
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
+  bool clicou = false;
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cadastro'),
@@ -70,13 +78,45 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 10,
               ),
-              ElevatedButton(
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.pushNamed(context, '/detalhes');
+                    setState(() {
+                      clicou = !clicou;
+                    });
+
+                    // Navigator.pushReplacementNamed(context, '/detalhes');
                   }
                 },
-                child: const Text('Logar'),
+                child: Center(
+                  child: AnimatedContainer(
+                    curve: Curves.bounceIn,
+                    duration: const Duration(milliseconds: 2000),
+                    width: clicou == true ? 40 : width,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: clicou == true
+                        ? const Center(
+                            child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          ))
+                        : const Center(
+                            child: Text(
+                              'Logar',
+                              style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                  ),
+                ),
               ),
             ],
           ),

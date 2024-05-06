@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<LoginPage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final controllerEmail = TextEditingController();
   final controllerPassword = TextEditingController();
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro'),
+        title: const Text('Bem vindo'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
@@ -33,10 +34,12 @@ class _HomePageState extends State<HomePage> {
           key: _formKey,
           child: ListView(
             children: [
+              Lottie.asset('assets/welcome.json'),
               TextFormField(
                 controller: controllerEmail,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.person),
                   border: OutlineInputBorder(),
                   labelText: 'Digite seu email',
                 ),
@@ -55,8 +58,10 @@ class _HomePageState extends State<HomePage> {
               ),
               TextFormField(
                 controller: controllerPassword,
+                obscureText: true,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.lock),
                   border: OutlineInputBorder(),
                   labelText: 'Digite sua senha',
                 ),

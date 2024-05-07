@@ -93,13 +93,16 @@ class _HomePageState extends State<LoginPage> {
                 height: 10,
               ),
               InkWell(
-                onTap: () {
+                onTap: () async {
                   if (_formKey.currentState!.validate()) {
                     setState(() {
                       clicou = !clicou;
                     });
 
-                    // Navigator.pushReplacementNamed(context, '/detalhes');
+                    await Future.delayed(
+                      const Duration(seconds: 3),
+                    );
+                    Navigator.pushReplacementNamed(context, '/entrega');
                   }
                 },
                 child: Center(

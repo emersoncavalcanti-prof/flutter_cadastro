@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       );
       nav.pushReplacement(
         PageRouteBuilder(
-          transitionDuration: const Duration(seconds: 3),
+          transitionDuration: const Duration(seconds: 2),
           pageBuilder: (context, animation, secondaryAnimation) =>
               const LoginPage(),
           settings: const RouteSettings(name: '/login'),

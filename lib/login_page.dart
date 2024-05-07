@@ -20,7 +20,21 @@ class _HomePageState extends State<LoginPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bem vindo'),
+        title: Row(
+          children: [
+            Hero(
+              tag: 'ete',
+              child: Image.asset(
+                'assets/logo.png',
+                height: 30,
+              ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            const Text('Bem vindo'),
+          ],
+        ),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),

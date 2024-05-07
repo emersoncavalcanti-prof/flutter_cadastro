@@ -3,6 +3,7 @@ import 'package:flutter_cadastro/anima_page.dart';
 import 'package:flutter_cadastro/detalhes_page.dart';
 import 'package:flutter_cadastro/entrega_page.dart';
 import 'package:flutter_cadastro/login_page.dart';
+import 'package:flutter_cadastro/splash_screen.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -13,7 +14,8 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/': (context) => const LoginPage(),
+        '/': (context) => const SplashScreen(),
+        '/login': (context) => const LoginPage(),
         '/anima': (context) => const AnimaPage(),
         '/entrega': (context) => const EntregaPage(),
         '/detalhes': (context) => const DetalhesPage(),

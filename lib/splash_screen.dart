@@ -39,12 +39,22 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: AnimatedContainer(
-          duration: const Duration(seconds: 3),
-          curve: Curves.elasticOut,
-          width: width,
-          height: height,
-          child: Hero(tag: 'ete', child: Image.asset('assets/logo.png')),
+        child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(seconds: 3),
+                curve: Curves.elasticOut,
+                width: width,
+                height: height,
+                child: Hero(tag: 'ete', child: Image.asset('assets/logo.png')),
+              ),
+              const CircularProgressIndicator()
+            ],
+          ),
         ),
       ),
     );

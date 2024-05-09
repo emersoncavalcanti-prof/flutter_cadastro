@@ -35,7 +35,7 @@ class _HomePageState extends State<LoginPage> {
             const Text('Bem vindo'),
           ],
         ),
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color(0xFF204353),
         foregroundColor: Colors.white,
       ),
       body: Padding(
@@ -112,7 +112,7 @@ class _HomePageState extends State<LoginPage> {
                     width: clicou == true ? 40 : width,
                     height: 40,
                     decoration: const BoxDecoration(
-                        color: Colors.blue,
+                        color: Color(0xFF204353),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: clicou == true
                         ? const Center(

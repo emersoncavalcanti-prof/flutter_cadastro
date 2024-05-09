@@ -8,6 +8,8 @@ class EntregaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color(0xFF204353),
+        foregroundColor: Colors.white,
         title: const Text('Meu app'),
       ),
       body: Center(

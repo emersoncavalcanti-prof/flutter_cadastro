@@ -7,6 +7,9 @@ class EntregaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Meu app'),
+      ),
       body: Center(
         child: SizedBox(
           height: double.infinity,

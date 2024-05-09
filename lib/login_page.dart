@@ -10,8 +10,8 @@ class LoginPage extends StatefulWidget {
 
 class _HomePageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  final controllerEmail = TextEditingController();
-  final controllerPassword = TextEditingController();
+  final controllerEmail = TextEditingController(text: 'emerson@flutter.com');
+  final controllerPassword = TextEditingController(text: '123456');
   bool clicou = false;
 
   @override
@@ -102,7 +102,7 @@ class _HomePageState extends State<LoginPage> {
                     await Future.delayed(
                       const Duration(seconds: 3),
                     );
-                    Navigator.pushReplacementNamed(context, '/entrega');
+                    Navigator.pushReplacementNamed(context, '/home');
                   }
                 },
                 child: Center(

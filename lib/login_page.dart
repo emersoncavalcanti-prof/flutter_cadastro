@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,6 +18,7 @@ class _HomePageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -48,6 +50,14 @@ class _HomePageState extends State<LoginPage> {
           key: _formKey,
           child: ListView(
             children: [
+              Container(
+                constraints: const BoxConstraints(
+                  minWidth: 50,
+                  maxWidth: 80,
+                  minHeight: 20,
+                ),
+                decoration: const BoxDecoration(color: Colors.black),
+              ),
               Lottie.asset('assets/welcome.json'),
               TextFormField(
                 controller: controllerEmail,

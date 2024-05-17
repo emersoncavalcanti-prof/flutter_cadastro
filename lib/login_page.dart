@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_cadastro/widget/custom_campo.dart';
 import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
@@ -59,45 +60,17 @@ class _HomePageState extends State<LoginPage> {
                 decoration: const BoxDecoration(color: Colors.black),
               ),
               Lottie.asset('assets/welcome.json'),
-              TextFormField(
-                controller: controllerEmail,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  border: OutlineInputBorder(),
-                  labelText: 'Digite seu email',
-                ),
-                validator: (email) {
-                  if (email!.isEmpty) {
-                    return 'Digite um email';
-                  }
-                  if (!email.contains('@')) {
-                    return 'Digite um email válido';
-                  }
-                  return null;
-                },
+              const CustomCampo(
+                icone: Icon(Icons.person),
+                label: 'Digite seu email',
               ),
               const SizedBox(
                 height: 10,
               ),
-              TextFormField(
-                controller: controllerPassword,
-                obscureText: true,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.lock),
-                  border: OutlineInputBorder(),
-                  labelText: 'Digite sua senha',
-                ),
-                validator: (password) {
-                  if (password!.isEmpty) {
-                    return 'Digite uma senha';
-                  }
-                  if (password.length < 6) {
-                    return 'A senha deve conter 6 caracteres';
-                  }
-                  return null;
-                },
+              const CustomCampo(
+                icone: Icon(Icons.lock),
+                label: 'Digite sua senha',
+                isObscure: true,
               ),
               const SizedBox(
                 height: 10,
